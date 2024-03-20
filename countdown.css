@@ -115,4 +115,8 @@ body {
     .texts {
         font-size: 0.7rem;
     }
+
+    .footer {
+        margin-top: 10rem;
+    }
 }
