@@ -35,22 +35,56 @@
 
 
 
-setInterval(function(){
+// setInterval(function(){
+// const endDate = new Date("March 23, 2024 00:00:00").getTime()
+// const date = new Date().getTime()
+// const day =  date.getUTCDate()
+// const hour = date.getHours()
+// const minute = date.getMinutes()
+// const second = date.getSeconds()
 
-const date = new Date()
-const day =  date.getUTCDate()
-const hour = date.getHours()
-const minute = date.getMinutes()
-const second = date.getSeconds()
+// const dayElement = document.getElementById("oldDays");
+// const hourElement = document.getElementById("oldHours");
+// const minuteElement = document.getElementById("oldMinutes");
+// const secondElement = document.getElementById("oldSeconds");
 
-const dayElement = document.getElementById("oldDays");
-const hourElement = document.getElementById("oldHours");
-const minuteElement = document.getElementById("oldMinutes");
-const secondElement = document.getElementById("oldSeconds");
+//     dayElement.innerHTML = day;
+//     hourElement.innerHTML = hour;
+//     minuteElement.innerHTML = minute;
+//     secondElement.innerHTML = second;
+// },1000)
 
-    dayElement.innerHTML = day;
-    hourElement.innerHTML = hour;
-    minuteElement.innerHTML = minute;
-    secondElement.innerHTML = second;
-},1000)
+const countdown = () => {
+    const endDate = new Date("March 23, 2024 00:00:00").getTime()
+    const date = new Date().getTime()
+    
+    const diff = endDate - date
+    console.log (diff)
+
+    const seconds = 1000
+    const minutes = seconds * 60
+    const hours = minutes * 60
+    const days = hours *24
+
+    const day = Math.floor(diff / days) 
+    let hour = Math.floor((diff % days) / hours)
+    let minute = Math.floor((diff % hours) / minutes)
+    let second = Math.floor((diff % minutes) / seconds)
+
+    hour = hour < 10 ? "0" + hour : hour
+    minute = minute < 10 ? "0" + minute : minute
+    second = second < 10 ? "0" + second : second
+
+    const dayElement = document.getElementById("oldDays");
+    const hourElement = document.getElementById("oldHours");
+    const minuteElement = document.getElementById("oldMinutes");
+    const secondElement = document.getElementById("oldSeconds");
+    
+        dayElement.innerHTML = day;
+        hourElement.innerHTML = hour;
+        minuteElement.innerHTML = minute;
+        secondElement.innerHTML = second;
+    }
+
+    setInterval(countdown, 1000)
 
